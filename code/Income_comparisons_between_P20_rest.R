@@ -187,7 +187,7 @@ names(P20main)[2]="Year"
  
   for(country in countries){
     new=subset(P20main, regionTitle==country)
-    maximums=max(new$restaverage,new$Nrestaverage)+(.05*(max(new$restaverage,new$Nrestaverage)))
+    maximums=max(new$restaverage)+(.05*(max(new$restaverage)))
     Consumption="Consumption"
     new=new[,c("regionTitle","P20average","restaverage","Year")]
     names(new)=c("regionTitle","P20","Rest of population","Year")
@@ -199,7 +199,7 @@ names(P20main)[2]="Year"
       theme_classic()+
       theme(legend.title=element_blank(), plot.title=element_text(hjust=0.5))+
       expand_limits(y=0)+
-      scale_y_continuous(expand=c(0,0),limits=c(0,max),labels=dollar)
+      scale_y_continuous(expand=c(0,0),limits=c(0,maximums),labels=dollar)
     # coord_cartesian(ylim=c(0,max))
     print(p)
     y.plot=current.graphics()
