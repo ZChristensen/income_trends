@@ -211,6 +211,3 @@ names(P20main)[2]="Year"
   }
   xl.workbook.save(filenam)
   xl.workbook.close()
-
-
-
